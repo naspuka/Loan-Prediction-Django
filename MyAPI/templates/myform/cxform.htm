@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loan Prediction API</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+    {% load staticfiles  %}
+    {% load crispy_forms_tags %}
+
+
+    <div class="mx-2 my-5">
+        <div class="container-fluid">
+
+            <div class="row" style="background-color: rgba(11, 31, 65, 0.63)">
+
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4">
+                    <img src="{% static 'images/img1.png' %}" alt="" style="width: 280px; height:200px;">
+                </div>
+                <div class="col-sm-4"></div>
+
+            </div>
+
+            <div class="row" style="background-color: rgb(48, 119, 235);"><br></div>
+            <div class="row" style="background-color: rgb(169, 186, 202);">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-8">
+                    <table style="border-collapse: separate; border-spacing: 15px;">
+                        <td><h4>Home</h4></td>
+                        <td><h4>About</h4></td>
+                        <td><h4>Product</h4></td>
+                        <td><h4>Services</h4></td>
+                        <td><h4>Contact</h4></td>
+                        
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-5 my-5">
+                    <h1>Small Loan Forms</h1>
+                    <p>* $25,000 Limit *</p><br>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <br>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    <br>
+                </div>
+                <div class="col">
+                    <div class="mt-5">
+                        <h4>
+                            {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                                    {{ message }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
