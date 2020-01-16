@@ -25,7 +25,7 @@ SECRET_KEY = '$vq50xn)=m=&4-m1e(78h#j6epft5^t-2olp@-ocumq8536o66'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://loan-approval-api.herokuapp.com/', '.herokuapp.com']
+ALLOWED_HOSTS = ['https://loan-approval-api.herokuapp.com/']
 
 import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
